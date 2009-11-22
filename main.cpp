@@ -21,10 +21,8 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
-#include <vector>
 
 #include <Cfg.hpp>
-#include <Range.hpp>
 #include <RotCypher.hpp>
 
 Cfg parseArgs(int argc, char * argv[]);
@@ -85,32 +83,22 @@ int main(int argc, char * argv[]) try
             {
                 std::ifstream in(cfg.getFile().c_str());
 
-                try
+                if(!in)
                 {
-                    in.exceptions(std::ifstream::eofbit
-                            | std::ifstream::failbit
-                            | std::ifstream::badbit);
-
-                    if(!in)
-                    {
-                        throw std::runtime_error(
-                                "Failed to open input file.");
-                    }
-
-                    while(std::getline(in, line))
-                        printCypherLine(rot, cfg.getCypherMode(), line);
-
-                    if(!in.eof())
-                    {
-                        throw std::runtime_error(
-                                "An error occurred while reading input "
-                                "file.");
-                    }
+                    throw std::runtime_error(
+                            "Failed to open input file.");
                 }
-                catch(std::exception &)
+
+                while(std::getline(in, line))
+                    printCypherLine(rot, cfg.getCypherMode(), line);
+
+                in.close();
+
+                if(!in.eof())
                 {
-                    in.close();
-                    throw;
+                    throw std::runtime_error(
+                            "An error occurred while reading input "
+                            "file.");
                 }
             }
         }
