@@ -22,25 +22,25 @@ function begin_with_copyright
 {
 	FILE=$1
 
-	echo "#" 1>"$FILE" && \
-		echo "# rot is a cypher utility implementing the rudimentary alphabetic rotation cypher." 1>>"$FILE" && \
-		echo "# Copyright (C) 2009 Brandon McCaig" 1>>"$FILE" && \
-		echo "#" 1>>"$FILE" && \
-		echo "# This file is part of rot." 1>>"$FILE" && \
-		echo "#" 1>>"$FILE" && \
-		echo "# rot is free software: you can redistribute it and/or modify" 1>>"$FILE" && \
-		echo "# it under the terms of the GNU General Public License as published by" 1>>"$FILE" && \
-		echo "# the Free Software Foundation, either version 2 of the License, or" 1>>"$FILE" && \
-		echo "# (at your option) any later version." 1>>"$FILE" && \
-		echo "#" 1>>"$FILE" && \
-		echo "# rot is distributed in the hope that it will be useful," 1>>"$FILE" && \
-		echo "# but WITHOUT ANY WARRANTY; without even the implied warranty of" 1>>"$FILE" && \
-		echo "# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the" 1>>"$FILE" && \
-		echo "# GNU General Public License for more details." 1>>"$FILE" && \
-		echo "#" 1>>"$FILE" && \
-		echo "# You should have received a copy of the GNU General Public License" 1>>"$FILE" && \
-		echo "# along with rot.  If not, see <http://www.gnu.org/licenses/>." 1>>"$FILE" && \
-		echo "#" 1>>"$FILE" && \
+	echo "//" 1>"$FILE" && \
+		echo "// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher." 1>>"$FILE" && \
+		echo "// Copyright (C) 2009 Brandon McCaig" 1>>"$FILE" && \
+		echo "//" 1>>"$FILE" && \
+		echo "// This file is part of rot." 1>>"$FILE" && \
+		echo "//" 1>>"$FILE" && \
+		echo "// rot is free software: you can redistribute it and/or modify" 1>>"$FILE" && \
+		echo "// it under the terms of the GNU General Public License as published by" 1>>"$FILE" && \
+		echo "// the Free Software Foundation, either version 2 of the License, or" 1>>"$FILE" && \
+		echo "// (at your option) any later version." 1>>"$FILE" && \
+		echo "//" 1>>"$FILE" && \
+		echo "// rot is distributed in the hope that it will be useful," 1>>"$FILE" && \
+		echo "// but WITHOUT ANY WARRANTY; without even the implied warranty of" 1>>"$FILE" && \
+		echo "// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the" 1>>"$FILE" && \
+		echo "// GNU General Public License for more details." 1>>"$FILE" && \
+		echo "//" 1>>"$FILE" && \
+		echo "// You should have received a copy of the GNU General Public License" 1>>"$FILE" && \
+		echo "// along with rot.  If not, see <http://www.gnu.org/licenses/>." 1>>"$FILE" && \
+		echo "//" 1>>"$FILE" && \
 		echo 1>>$FILE
 
 	check_status_fatal $? "Failed to initialize \'$FILE\' with copyright."
