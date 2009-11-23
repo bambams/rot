@@ -160,7 +160,7 @@ void printHelp(std::ostream & out)
 "\n"
 "    rot { -h | --help }\n"
 "    rot [ -a | --argv | -F<file> | --file=<file> ]\n"
-"            [ -d | --decypher ] [ -C | --13 | -N<numPlaces>\n"
+"            [ -d | --decypher ] [ -C | --13 | --47 | -N<numPlaces>\n"
 "                | --num-places=<numPlaces> ]\n"
 "            [ -R<range> | --range=<range> ... ]\n"
 "\n"
