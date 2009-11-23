@@ -156,7 +156,7 @@ void printHelp(std::ostream & out)
 {
     const char * const HELP =
 "  Takes character data as input and rotates characters a\n"
-"  number of places. Can be used for rot13 and rot<N>.\n"
+"  number of places. Can be used for rot13, rot47, and rot<N>.\n"
 "\n"
 "    rot { -h | --help }\n"
 "    rot [ -a | --argv | -F<file> | --file=<file> ]\n"
