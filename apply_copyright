@@ -23,7 +23,7 @@ function begin_with_copyright
 	FILE=$1
 
 	echo "//" 1>"$FILE" && \
-		echo "// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher." 1>>"$FILE" && \
+		echo "// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher." 1>>"$FILE" && \
 		echo "// Copyright (C) 2009 Brandon McCaig" 1>>"$FILE" && \
 		echo "//" 1>>"$FILE" && \
 		echo "// This file is part of rot." 1>>"$FILE" && \

@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.

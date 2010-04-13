@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.
@@ -18,41 +18,41 @@
 // along with rot.  If not, see <http:#www.gnu.org/licenses/>.
 //
 
-#include <RotCypher.hpp>
+#include <RotCipher.hpp>
 
-RotCypher::RotCypher(void):
+RotCipher::RotCipher(void):
     numPlaces_(0)
 {
 }
 
-RotCypher::RotCypher(const unsigned int numPlaces):
+RotCipher::RotCipher(const unsigned int numPlaces):
     numPlaces_(numPlaces)
 {
 }
 
-RotCypher::~RotCypher(void) {}
+RotCipher::~RotCipher(void) {}
 
-unsigned int RotCypher::getNumPlaces(void) const
+unsigned int RotCipher::getNumPlaces(void) const
 {
     return this->numPlaces_;
 }
 
-std::vector<Range> RotCypher::getRanges(void) const
+std::vector<Range> RotCipher::getRanges(void) const
 {
     return this->ranges_;
 }
 
-unsigned int RotCypher::setNumPlaces(const unsigned int value)
+unsigned int RotCipher::setNumPlaces(const unsigned int value)
 {
     return this->numPlaces_ = value;
 }
 
-std::vector<Range> RotCypher::setRanges(const std::vector<Range> & value)
+std::vector<Range> RotCipher::setRanges(const std::vector<Range> & value)
 {
     return this->ranges_ = value;
 }
 
-char RotCypher::decypher(const char & c) const
+char RotCipher::decipher(const char & c) const
 {
     for(std::vector<Range>::const_iterator it=this->ranges_.begin();
             it!=this->ranges_.end();
@@ -80,7 +80,7 @@ char RotCypher::decypher(const char & c) const
     return c;
 }
 
-char RotCypher::encypher(const char & c) const
+char RotCipher::encipher(const char & c) const
 {
     for(std::vector<Range>::const_iterator it=this->ranges_.begin();
             it!=this->ranges_.end();

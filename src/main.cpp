@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.
@@ -23,16 +23,16 @@
 #include <stdexcept>
 
 #include <Cfg.hpp>
-#include <RotCypher.hpp>
+#include <RotCipher.hpp>
 
 Cfg parseArgs(int argc, char * argv[]);
-void printCypherLine(const RotCypher &, const CypherMode, const std::string);
+void printCipherLine(const RotCipher &, const CipherMode, const std::string);
 void printHelp(std::ostream & = std::cout);
 
 int main(int argc, char * argv[]) try
 {
     Cfg cfg = parseArgs(argc, argv);
-    RotCypher rot;
+    RotCipher rot;
 
     if(!cfg)
     {
@@ -67,7 +67,7 @@ int main(int argc, char * argv[]) try
                 ss << *it;
             }
 
-            printCypherLine(rot, cfg.getCypherMode(), ss.str());
+            printCipherLine(rot, cfg.getCipherMode(), ss.str());
         }
         break;
         case FILEIO:
@@ -77,7 +77,7 @@ int main(int argc, char * argv[]) try
             if(cfg.getFile() == "-")
             {
                 while(std::getline(std::cin, line))
-                    printCypherLine(rot, cfg.getCypherMode(), line);
+                    printCipherLine(rot, cfg.getCipherMode(), line);
             }
             else
             {
@@ -90,7 +90,7 @@ int main(int argc, char * argv[]) try
                 }
 
                 while(std::getline(in, line))
-                    printCypherLine(rot, cfg.getCypherMode(), line);
+                    printCipherLine(rot, cfg.getCipherMode(), line);
 
                 in.close();
 
@@ -120,7 +120,7 @@ catch(...)
     return 2;
 }
 
-void printCypherLine(const RotCypher & rot, const CypherMode mode,
+void printCipherLine(const RotCipher & rot, const CipherMode mode,
         const std::string line)
 {
     for(int i=0, l=line.length(); i<l; i++)
@@ -129,14 +129,14 @@ void printCypherLine(const RotCypher & rot, const CypherMode mode,
 
         switch(mode)
         {
-            case DECYPHER:
-                std::cout << rot.decypher(c);
+            case DECIPHER:
+                std::cout << rot.decipher(c);
                 break;
-            case ENCYPHER:
-                std::cout << rot.encypher(c);
+            case ENCIPHER:
+                std::cout << rot.encipher(c);
                 break;
             default:
-                throw std::runtime_error("Invalid CypherMode detected.");
+                throw std::runtime_error("Invalid CipherMode detected.");
         }
     }
 
@@ -160,7 +160,7 @@ void printHelp(std::ostream & out)
 "\n"
 "    rot { -h | --help }\n"
 "    rot [ -a | --argv | -F<file> | --file=<file> ]\n"
-"            [ -d | --decypher ] [ -C | --13 | --47 | -N<numPlaces>\n"
+"            [ -d | --decipher ] [ -C | --13 | --47 | -N<numPlaces>\n"
 "                | --num-places=<numPlaces> ]\n"
 "            [ -R<range> | --range=<range> ... ]\n"
 "\n"
@@ -174,7 +174,7 @@ void printHelp(std::ostream & out)
 "    --47                         Rot47 mode. Same as -N47 -R217E.\n"
 "\n"
 "    -d\n"
-"    --decypher                   Rotate places backwards instead of\n"
+"    --decipher                   Rotate places backwards instead of\n"
 "                                 forwards.\n"
 "\n"
 "    -F<file>\n"

@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.
@@ -30,19 +30,19 @@
 
 class Cfg;
 
-    #include <CypherMode.hpp>
+    #include <CipherMode.hpp>
     #include <InputMode.hpp>
     #include <Range.hpp>
 
 class Cfg
 {
 protected:
-    static const CypherMode DEFAULT_CYPHER_MODE;
+    static const CipherMode DEFAULT_CIPHER_MODE;
     static const InputMode DEFAULT_INPUT_MODE;
 
     bool printHelp_;
     unsigned int numPlaces_;
-    CypherMode cypherMode_;
+    CipherMode cipherMode_;
     InputMode inputMode_;
     std::string file_;
     std::vector<std::string> args_;
@@ -51,7 +51,7 @@ protected:
     void assertInputSourceUnset(void) const;
     void assertNumPlacesUnset(void) const;
 
-    CypherMode setCypherMode(const CypherMode);
+    CipherMode setCipherMode(const CipherMode);
     std::string setFile(const std::string);
     InputMode setInputMode(const InputMode);
     unsigned int setNumPlaces(const unsigned int);
@@ -62,7 +62,7 @@ public:
 
     void addRange(const std::string);
     std::vector<std::string> getArgs(void) const;
-    CypherMode getCypherMode(void) const;
+    CipherMode getCipherMode(void) const;
     std::string getFile(void) const;
     InputMode getInputMode(void) const;
     unsigned int getNumPlaces(void) const;

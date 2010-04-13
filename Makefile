@@ -13,7 +13,7 @@ default: $(OBJDIR) $(BIN)
 $(OBJDIR):
 	mkdir -p $@
 
-$(BIN): $(OBJDIR)/Cfg.o $(OBJDIR)/main.o $(OBJDIR)/Range.o $(OBJDIR)/RotCypher.o
+$(BIN): $(OBJDIR)/Cfg.o $(OBJDIR)/main.o $(OBJDIR)/Range.o $(OBJDIR)/RotCipher.o
 	$(CXX) $(CXX_CFLAGS) -o $@ $?
 
 $(OBJDIR)/Cfg.o: $(SRCDIR)/Cfg.cpp $(INCDIR)/Cfg.hpp
@@ -25,7 +25,7 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 $(OBJDIR)/Range.o: $(SRCDIR)/Range.cpp $(INCDIR)/Range.hpp
 	$(CXX) $(CXX_CFLAGS) -c -o $@ $<
 
-$(OBJDIR)/RotCypher.o: $(SRCDIR)/RotCypher.cpp $(INCDIR)/RotCypher.hpp
+$(OBJDIR)/RotCipher.o: $(SRCDIR)/RotCipher.cpp $(INCDIR)/RotCipher.hpp
 	$(CXX) $(CXX_CFLAGS) -c -o $@ $<
 
 clean:

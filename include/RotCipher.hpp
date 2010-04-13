@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.
@@ -18,10 +18,35 @@
 // along with rot.  If not, see <http:#www.gnu.org/licenses/>.
 //
 
-#ifndef CYPHERMODE_HPP
-    #define CYPHERMODE_HPP
+#ifndef ROTCIPHER_HPP
+    #define ROTCIPHER_HPP
 
-enum CypherMode { ENCYPHER, DECYPHER };
+    #include <cctype>
+    #include <vector>
+
+class RotCipher;
+
+    #include <Range.hpp>
+
+class RotCipher
+{
+protected:
+    unsigned int numPlaces_;
+    std::vector<Range> ranges_;
+public:
+    RotCipher(void);
+    RotCipher(const unsigned int);
+    ~RotCipher(void);
+
+    unsigned int getNumPlaces(void) const;
+    std::vector<Range> getRanges(void) const;
+    unsigned int setNumPlaces(const unsigned int);
+    std::vector<Range> setRanges(const std::vector<Range> &);
+
+    char decipher(const char & c) const;
+    char encipher(const char & c) const;
+};
+
 
 #endif
 

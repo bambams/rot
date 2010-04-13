@@ -1,5 +1,5 @@
 //
-// rot is a cypher utility implementing the rudimentary alphabetic rotation cypher.
+// rot is a cipher utility implementing the rudimentary alphabetic rotation cipher.
 // Copyright (C) 2009 Brandon McCaig
 //
 // This file is part of rot.
@@ -20,13 +20,13 @@
 
 #include <Cfg.hpp>
 
-const CypherMode Cfg::DEFAULT_CYPHER_MODE = ENCYPHER;
+const CipherMode Cfg::DEFAULT_CIPHER_MODE = ENCIPHER;
 const InputMode Cfg::DEFAULT_INPUT_MODE = FILEIO;
 
 Cfg::Cfg(void):
     printHelp_(false),
     numPlaces_(0),
-    cypherMode_(DEFAULT_CYPHER_MODE),
+    cipherMode_(DEFAULT_CIPHER_MODE),
     inputMode_(DEFAULT_INPUT_MODE)
 {
 }
@@ -111,9 +111,9 @@ std::string Cfg::getFile(void) const
     return this->file_;
 }
 
-CypherMode Cfg::getCypherMode(void) const
+CipherMode Cfg::getCipherMode(void) const
 {
-    return this->cypherMode_;
+    return this->cipherMode_;
 }
 
 InputMode Cfg::getInputMode(void) const
@@ -138,7 +138,7 @@ void Cfg::parseOpts(int argc, char * argv[])
             {"13",         no_argument,       0, 'C'},
             {"47",         no_argument,       0, '4'},
             {"argv",       no_argument,       0, 'a'},
-            {"decypher",   no_argument,       0, 'd'},
+            {"decipher",   no_argument,       0, 'd'},
             {"file",       required_argument, 0, 'F'},
             {"help",       no_argument,       0, 'h'},
             {"num-places", required_argument, 0, 'N'},
@@ -168,7 +168,7 @@ void Cfg::parseOpts(int argc, char * argv[])
                 this->setNumPlaces(13);
                 break;
             case 'd':
-                this->setCypherMode(DECYPHER);
+                this->setCipherMode(DECIPHER);
                 break;
             case 'F':
                 this->setFile(optarg);
@@ -225,9 +225,9 @@ bool Cfg::printHelp(void) const
     return this->printHelp_;
 }
 
-CypherMode Cfg::setCypherMode(const CypherMode cypherMode)
+CipherMode Cfg::setCipherMode(const CipherMode cipherMode)
 {
-    return this->cypherMode_ = cypherMode;
+    return this->cipherMode_ = cipherMode;
 }
 
 std::string Cfg::setFile(const std::string file)
