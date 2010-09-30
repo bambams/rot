@@ -171,6 +171,7 @@ void Cfg::parseOpts(int argc, char * argv[])
                 break;
             case 'C':
                 this->setNumPlaces(13);
+                this->ranges_.clear();
                 break;
             case 'd':
                 this->setCipherMode(DECIPHER);
