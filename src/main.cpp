@@ -169,7 +169,7 @@ void printHelp(std::ostream & out)
 "                                 instead of stdin.\n"
 "\n"
 "    -C\n"
-"    --13                         Rot13 mode. Same as -N13.\n"
+"    --13                         Rot13 mode. Same as -N13 -R415A -R617A.\n"
 "\n"
 "    --26\n"
 "                                 Rot26 mode. Same as -N26 -R415A -R617A.\n"
