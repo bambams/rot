@@ -6,6 +6,10 @@ SRCDIR=src
 CXX=g++
 CXX_CFLAGS=-I$(INCDIR)
 
+ifdef DEBUG
+	CXX_CFLAGS += -g3
+endif
+
 .PHONY: clean default
 
 default: $(OBJDIR) $(BIN)
