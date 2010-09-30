@@ -136,6 +136,7 @@ void Cfg::parseOpts(int argc, char * argv[])
     int i;
     static struct option long_options[] = {
             {"13",         no_argument,       0, 'C'},
+            {"26",         no_argument,       0, '2'},
             {"47",         no_argument,       0, '4'},
             {"argv",       no_argument,       0, 'a'},
             {"decipher",   no_argument,       0, 'd'},
@@ -156,6 +157,10 @@ void Cfg::parseOpts(int argc, char * argv[])
 
         switch(c)
         {
+            case '2':
+                this->setNumPlaces(26);
+                this->ranges_.clear();
+                break;
             case '4':
                 this->setNumPlaces(47);
                 this->ranges_.clear();
