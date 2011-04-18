@@ -1,0 +1,24 @@
+Rot is a simple utility that does rotation based ciphers i.e., rot13,
+rot47, and is flexible enough to handle arbitrary rules based on ranges of
+characters (8-bit).
+
+== Building ==
+
+Rot was originally build with an explicit Makefile, but I experimentally
+switched to premake4 to see what it was like. If you don't already have it
+then you'll need to retrieve premake4.
+
+Once "installed" you should be able to build rot pretty easily:
+
+$ premake4 gmake
+$ make
+
+== Usage ==
+
+By default rot reads from stdin. You can use the --argv or --file options
+to override this behavior. Rot always writes to stdout (or errors to
+stderr). There are shortcut options for rot13 (--13), rot26 (--26) and
+rot47 (--47). Custom configurations can be specified with one --num-places
+option and "any" number of --range options. Use the --help option for
+more complete usage.
+
