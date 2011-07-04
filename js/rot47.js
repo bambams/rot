@@ -1,0 +1,1 @@
+javascript:String.prototype.t=''.charCodeAt;function e(){r='';for(i=0;i<s.length;i++){c=s.t(i);if(c>=33&&c<=126){c-=33;c+=47;c%=94;c+=33;}r+=String.fromCharCode(c);}}s="01234567890!@#$%^&*()_-+=[]{};':\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";w=typeof document=="undefined"?print:document.write;e();w(r);void(0);
