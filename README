@@ -22,3 +22,63 @@ rot47 (--47). Custom configurations can be specified with one --num-places
 option and "any" number of --range options. Use the --help option for
 more complete usage.
 
+== RPM/Yum Installation (ADVANCED) ==
+
+An *experimental* Yum repository has been setup on the Castopulence Web
+site. To flex its muscle, I've created a basic RPM .spec for rot and
+pushed the resulting RPM to the repo. Building rot is straightforward, but
+nevertheless if you'd prefer you can optionally choose to install it using
+the repository. As a minor benefit, that would make it possible to make
+updates available to you automatically via yum.
+
+There are a few gotchas though. For starters, the automatically detected
+dependencies seem blatantly wrong for the rot RPM. This means that ~4 (at
+the time of reading) dependencies will be installed needlessly. It should
+be relatively harmless, but nevertheless it is annoying (and at least for
+me, alarming).
+
+You can download the RPM directly and install it using rpm (or the
+graphical front end) or you can install the repository itself and then use
+yum to install rot.
+
+Prior to showing you how, I'd like to stress that this is experimental.
+Only do this if you know a bit of what you're doing and are feeling
+adventurous (and trust me, since this will install [precompiled] binary
+packages).
+
+What this might look like:
+
+# Variables are purely to shorten the length of the command line.
+reponame=castopulence-expermental
+pkgname="${reponame}-0.0.1-1.noarch.rpm"
+wget "https://www.castopulence.org/${reponame}/${pkgname}"
+# You'll need to be root to install using the package manager.
+su -
+rpm -ipv "${pkgname}"
+
+# Since we had to use rpm to install the repo (chicken/egg) yum isn't
+# aware of the actual package. It will know about the repo because the
+# .repo file would be installed, but it won't know about the package. In
+# order to make Yum aware of the package, now that it knows about the
+# repo, we can simply reinstall the package.
+
+# I'm still somewhat new to packaging and whatnot, but to be safe I'm
+# going to clear the Yum cache(s) first to make sure that we download the
+# latest. I don't know if you need to do this or not. If you have a slow
+# Internet connection then you might opt to skip this step.
+# First clear your personal repo.
+exit
+yum clean all
+# Then clear the system cache.
+su -
+yum clean all
+
+# Now you should be good to go.
+yum reinstall "${reponame}"
+
+# Finally, install rot.
+yum install rot
+
+# Be sure to exit your root shell ASAP to be safe. ^^
+exit
+
